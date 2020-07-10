@@ -4,7 +4,6 @@ namespace SeniorProgramming\Fancourier\Services;
 use SeniorProgramming\FanCourier\Core\Base;
 use SeniorProgramming\FanCourier\Helpers\Hints;
 use SeniorProgramming\FanCourier\Exceptions\FanCourierInstanceException;
-use SeniorProgramming\FanCourier\Exceptions\FanCourierInvalidParamException;
 use SeniorProgramming\FanCourier\Exceptions\FanCourierUnknownModelException;
 
 class ApiService extends Base {
@@ -13,19 +12,18 @@ class ApiService extends Base {
     private $credentials;
 
     /**
-     * 
-     * @throws FanCourierInvalidParamException
+     *
+     * @param string $username
+     * @param string $password
+     * @param string $clientId
      */
-    public function __construct() {
-        if(!config('fancourier.username') || !config('fancourier.password') || !config('fancourier.client_id')) {
-            throw new FanCourierInvalidParamException('Please set FANCOURIER_USERNAME, FANCOURIER_PASSWORD and FANCOURIER_CLIENT_ID environment variables.');
-        }
-        
+    public function __construct(string $username, string $password, string $clientId) 
+    {
         $this->credentials = (object) [
-            'username'  => config('fancourier.username'),
-            'user_pass'  => config('fancourier.password'),
-            'client_id' => config('fancourier.client_id'),
-            ];
+            'username'  => $username,
+            'user_pass'  => $password,
+            'client_id' => $clientId,
+        ];
     }
     
     /**

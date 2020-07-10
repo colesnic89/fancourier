@@ -1,16 +1,20 @@
 {
-    "name": "seniorprogramming/fancourier",
+    "name": "colesnic89/fancourier",
     "description": "FanCourier API Client",
     "license": "MIT",
     "authors": [
         {
             "name": "Maria Petrescu",
             "email": "mpetrescu@seniorprogramming.ro"
+        },
+        {
+            "name": "Colesnic Maxim",
+            "email": "colesnic89@gmail.com"
         }
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": ">=5.5.9",
+        "php": ">=7.1.*",
         "php-curl-class/php-curl-class": "^7.1"
     },
     "require-dev": {
